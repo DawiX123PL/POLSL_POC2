@@ -46,6 +46,47 @@ function convert_image(names)
     imwrite(I2_3, "../zad3a/" + dst_path + "/I2_3.png");
     
 
+
+        Latex = [
+""
+"\newcommand{\ww}{0.24} "
+"\begin{figure}[H] "
+"   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % "
+"   \subfloat[O1]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I1.png}}  \hfill% "
+"   \subfloat[O1 + szum 1\% \\ psnr = " + psnr(I1_1,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I1_1.png}}  \hfill% "
+"   \subfloat[O1 + szum 2\% \\ psnr = " + psnr(I1_2,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I1_2.png}}  \hfill%"
+"   \subfloat[O1 + szum 10\% \\ psnr = " + psnr(I1_3,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I1_3.png}}  \hfill% "
+"   "
+"   \subfloat[]{"
+"      \includegraphics[width=\ww\linewidth]{other/empty.png}}  \hfill% "
+"   \subfloat[mediana 3x3 \\ psnr = " + psnr(I2_1,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I2_1.png}}  \hfill% "
+"   \subfloat[mediana 3x3 \\ psnr = " + psnr(I2_2,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I2_2.png}}  \hfill%"
+"   \subfloat[mediana 3x3 \\ psnr = " + psnr(I2_3,I1) + "]{"
+"      \includegraphics[width=\ww\linewidth]{../zad3a/img1/I2_3.png}}  \hfill% "
+"   "
+"\end{figure} "
+"\let\ww\undefined "
+""
+];
+
+  
+    Latex = join(Latex,[''],2);
+    Latex = join(Latex,[newline],1);
+
+    fid = fopen("../zad3a/" + dst_path + "/result.tex",'wt');
+    fprintf(fid,"%s", Latex);
+    fclose(fid);
+
+
+
+
+
 end
 
 
