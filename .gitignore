@@ -1,1 +1,11 @@
 /Lab1/zad*
+
+# latex files
+*.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+
+
