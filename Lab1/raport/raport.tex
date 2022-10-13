@@ -8,32 +8,42 @@
 
 
 \section*{Zadanie 1. Przygotowanie obrazów testowych}
-
-\newcommand{\ww}{0.24} 
-\begin{figure}[H] 
-   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % 
-   \subfloat[O1]{
-      \includegraphics[width=\ww\linewidth]{../zad1/gray/0/img_1.png}}  \hfill% 
-   \subfloat[O1 + szum 1\%]{
-      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.01/img_1.png}}  \hfill% 
-   \subfloat[O1 + szum 2\%]{
-      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.02/img_1.png}}  \hfill%
-   \subfloat[O1 + szum 10\%]{
-      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.1/img_1.png}}
-\caption{Porownanie}  
- 
-\end{figure} 
-\let\ww\undefined 
-
+\input{../zad1/img_1.png_result.tex}
 
 \section*{Zadanie 2. Filtracja obrazów z poziomami szarości}
+\subsection*{Filtr medianowy}
 \input{../zad2a/img1/result.tex}
+
+\subsection*{Filtr LUM}
 \input{../zad2b/img1/result.tex}
+
+\subsection*{Porównanie wyników}
 \input{../zad2c/img1/result.tex}
 
 \section*{Zadanie 3. Filtracja obrazów barwnych} 
+\subsection*{Filtr medianowy}
 \input{../zad3a/img1/result.tex}
+
+\subsection*{Filtr VMF}
 \input{../zad3b/img1/result.tex}
+
+
+\newpage \section*{Kody programów}
+
+\subsection*{ cropImage.m         }\lstinputlisting[language=Octave]{ "../matlab/cropImage.m"        } \newpage
+\subsection*{ filter\_LUM.m       }\lstinputlisting[language=Octave]{ "../matlab/filter_LUM.m"       } \newpage
+\subsection*{ filter\_median.m    }\lstinputlisting[language=Octave]{ "../matlab/filter_median.m"    } \newpage
+\subsection*{ filter\_VMF.m       }\lstinputlisting[language=Octave]{ "../matlab/filter_VMF.m"       } \newpage
+\subsection*{ run\_all.m          }\lstinputlisting[language=Octave]{ "../matlab/run_all.m"          } \newpage
+\subsection*{ test.m              }\lstinputlisting[language=Octave]{ "../matlab/test.m"             } \newpage
+\subsection*{ test2.m             }\lstinputlisting[language=Octave]{ "../matlab/test2.m"            } \newpage
+\subsection*{ zad1.m              }\lstinputlisting[language=Octave]{ "../matlab/zad1.m"             } \newpage
+\subsection*{ zad2a.m             }\lstinputlisting[language=Octave]{ "../matlab/zad2a.m"            } \newpage
+\subsection*{ zad2b.m             }\lstinputlisting[language=Octave]{ "../matlab/zad2b.m"            } \newpage
+\subsection*{ zad2c.m             }\lstinputlisting[language=Octave]{ "../matlab/zad2c.m"            } \newpage
+\subsection*{ zad3a.m             }\lstinputlisting[language=Octave]{ "../matlab/zad3a.m"            } \newpage
+\subsection*{ zad3b.m             }\lstinputlisting[language=Octave]{ "../matlab/zad3b.m"            } \newpage
+
 
 
 

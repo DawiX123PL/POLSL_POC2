@@ -10,6 +10,7 @@ images = [
         "kodim23_512x512.png",      "img_4.png"
         "lena_512x512.bmp",         "img_5.png"
         "peppers3_512x512.bmp" ,    "img_6.png"
+        "castle.png" ,              "img_7.png"
         ];
 
 images_path = "../images/"
@@ -51,6 +52,42 @@ function convert_image(images_path, image_names, d)
 
     name = gray_path + dst;
     imwrite(I_gray,name);
+
+
+        Latex = [
+"\newcommand{\ww}{0.24} "
+"\begin{figure}[H] "
+"   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % "
+"   \subfloat[O1]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/gray/0/" + dst + "}}  \hfill% "
+"   \subfloat[O1 + szum 1\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.01/" + dst + "}}  \hfill% "
+"   \subfloat[O1 + szum 2\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.02/" + dst + "}}  \hfill%"
+"   \subfloat[O1 + szum 10\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/gray/0.1/" + dst + "}}   \\ "
+"   \subfloat[O1]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/rgb/0/" + dst + "}}  \hfill% "
+"   \subfloat[O1 + szum 1\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/rgb/0.01/" + dst + "}}  \hfill% "
+"   \subfloat[O1 + szum 2\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/rgb/0.02/" + dst + "}}  \hfill%"
+"   \subfloat[O1 + szum 10\%]{"
+"      \includegraphics[width=\ww\linewidth]{../zad1/rgb/0.1/" + dst + "}}"
+"\caption{Porownanie}  "
+" "
+"\end{figure} "
+"\let\ww\undefined "
+]
+
+  
+    Latex = join(Latex,[''],2);
+    Latex = join(Latex,[newline],1);
+
+    fid = fopen("../zad1/" + dst + "_result.tex",'wt');
+    fprintf(fid,"%s", Latex);
+    fclose(fid);
+
 
 
 end

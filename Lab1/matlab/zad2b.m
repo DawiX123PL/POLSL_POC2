@@ -4,17 +4,18 @@ clc
 
 
 
-images = [
-    "img1", "img_1.png"
-]
+images = {
+    "img1", "img_1.png", [.1 .4 .4 .1]
+}
 
 convert_image(images(1,:));
 
 
 function convert_image(names)
 
-    dst_path = names(1);
-    name = names(2)
+    dst_path = string(names(1));
+    name = string(names(2));
+    crop = cell2mat(names(3));
 
     I1 = imread("../zad1/gray/0/" + name);
     I1 = double(I1) / 255;
@@ -30,14 +31,14 @@ function convert_image(names)
 
     mkdir("../zad2b/" + dst_path);
 
-    imwrite(I1, "../zad2b/" + dst_path + "/I1.png");
-    imwrite(I2, "../zad2b/" + dst_path + "/I2.png");
-    imwrite(I3, "../zad2b/" + dst_path + "/I3.png");
-    imwrite(I4, "../zad2b/" + dst_path + "/I4.png");
-    imwrite(I5, "../zad2b/" + dst_path + "/I5.png");
-    imwrite(I6, "../zad2b/" + dst_path + "/I6.png");
-    imwrite(I7, "../zad2b/" + dst_path + "/I7.png");
-    imwrite(I8, "../zad2b/" + dst_path + "/I8.png");
+    imwrite(cropImage(I1, crop), "../zad2b/" + dst_path + "/I1.png");
+    imwrite(cropImage(I2, crop), "../zad2b/" + dst_path + "/I2.png");
+    imwrite(cropImage(I3, crop), "../zad2b/" + dst_path + "/I3.png");
+    imwrite(cropImage(I4, crop), "../zad2b/" + dst_path + "/I4.png");
+    imwrite(cropImage(I5, crop), "../zad2b/" + dst_path + "/I5.png");
+    imwrite(cropImage(I6, crop), "../zad2b/" + dst_path + "/I6.png");
+    imwrite(cropImage(I7, crop), "../zad2b/" + dst_path + "/I7.png");
+    imwrite(cropImage(I8, crop), "../zad2b/" + dst_path + "/I8.png");
 
 
 

@@ -4,17 +4,19 @@ clc
 
 
 
-images = [
-    "img1", "img_1.png"
-]
+images = {
+    "img1", "img_1.png", [.1 .4 .4 .1]
+}
 
 convert_image(images(1,:));
 
 
 function convert_image(names)
 
-    dst_path = names(1);
-    name = names(2)
+    dst_path = string(names(1));
+    name = string(names(2));
+    crop = cell2mat(names(3));
+
 
     I1 = imread("../zad1/gray/0/" + name);
     I1 = double(I1) / 255;
@@ -44,22 +46,22 @@ function convert_image(names)
     mkdir("../zad2c/" + dst_path);
 
 
-    imwrite(I1, "../zad2c/" + dst_path + "/I1.png");
+    imwrite(cropImage(I1, crop), "../zad2c/" + dst_path + "/I1.png");
 
-    imwrite(I1_1, "../zad2c/" + dst_path + "/I1_1.png");
-    imwrite(I1_2, "../zad2c/" + dst_path + "/I1_2.png");
-    imwrite(I1_3, "../zad2c/" + dst_path + "/I1_3.png");
-    imwrite(I1_4, "../zad2c/" + dst_path + "/I1_4.png");
+    imwrite(cropImage(I1_1, crop), "../zad2c/" + dst_path + "/I1_1.png");
+    imwrite(cropImage(I1_2, crop), "../zad2c/" + dst_path + "/I1_2.png");
+    imwrite(cropImage(I1_3, crop), "../zad2c/" + dst_path + "/I1_3.png");
+    imwrite(cropImage(I1_4, crop), "../zad2c/" + dst_path + "/I1_4.png");
 
-    imwrite(I2_1, "../zad2c/" + dst_path + "/I2_1.png");
-    imwrite(I2_2, "../zad2c/" + dst_path + "/I2_2.png");
-    imwrite(I2_3, "../zad2c/" + dst_path + "/I2_3.png");
-    imwrite(I2_4, "../zad2c/" + dst_path + "/I2_4.png");
+    imwrite(cropImage(I2_1, crop), "../zad2c/" + dst_path + "/I2_1.png");
+    imwrite(cropImage(I2_2, crop), "../zad2c/" + dst_path + "/I2_2.png");
+    imwrite(cropImage(I2_3, crop), "../zad2c/" + dst_path + "/I2_3.png");
+    imwrite(cropImage(I2_4, crop), "../zad2c/" + dst_path + "/I2_4.png");
 
-    imwrite(I3_1, "../zad2c/" + dst_path + "/I3_1.png");
-    imwrite(I3_2, "../zad2c/" + dst_path + "/I3_2.png");
-    imwrite(I3_3, "../zad2c/" + dst_path + "/I3_3.png");
-    imwrite(I3_4, "../zad2c/" + dst_path + "/I3_4.png");
+    imwrite(cropImage(I3_1, crop), "../zad2c/" + dst_path + "/I3_1.png");
+    imwrite(cropImage(I3_2, crop), "../zad2c/" + dst_path + "/I3_2.png");
+    imwrite(cropImage(I3_3, crop), "../zad2c/" + dst_path + "/I3_3.png");
+    imwrite(cropImage(I3_4, crop), "../zad2c/" + dst_path + "/I3_4.png");
 
 
 
