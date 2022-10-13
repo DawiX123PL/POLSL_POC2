@@ -11,7 +11,7 @@ end
 
 window_edge_length = window_size * 2 + 1;
 vector_total_size = window_edge_length ^ 2;
-vector_center_element_pos = (vector_total_size+1) /2
+vector_center_element_pos = (vector_total_size+1) /2;
 
 for y = 1:size(I,2)
     for x = 1:size(I,1)
