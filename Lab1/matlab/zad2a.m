@@ -47,7 +47,7 @@ function convert_image(names)
 "      \includegraphics[width=\ww\linewidth]{../zad2a/img1/I3.png}}  \hfill%   "
 "   \subfloat[mediana 5x5 \\ psnr=" + psnr(I4,I1) + "]{  "
 "      \includegraphics[width=\ww\linewidth]{../zad2a/img1/I4.png}}  \hfill%  "
-"   \subfloat[mediana 5x5 \\ psnr=" + psnr(I5,I1) + "]{  "
+"   \subfloat[mediana 7x7 \\ psnr=" + psnr(I5,I1) + "]{  "
 "      \includegraphics[width=\ww\linewidth]{../zad2a/img1/I5.png}}  "
 "\caption{Porownanie}    "
 ""
