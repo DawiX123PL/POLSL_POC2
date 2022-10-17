@@ -39,6 +39,18 @@ function convert_image(names)
     I3_3 = filter_VMF(I1_3,1, "L2"); % 
 
 
+    I1   = I1  (5:end-5, 5:end-5, :);
+    I1_1 = I1_1(5:end-5, 5:end-5, :);
+    I1_2 = I1_2(5:end-5, 5:end-5, :);
+    I1_3 = I1_3(5:end-5, 5:end-5, :);
+    I2_1 = I2_1(5:end-5, 5:end-5, :);
+    I2_2 = I2_2(5:end-5, 5:end-5, :);
+    I2_3 = I2_3(5:end-5, 5:end-5, :);
+    I3_1 = I3_1(5:end-5, 5:end-5, :);
+    I3_2 = I3_2(5:end-5, 5:end-5, :);
+    I3_3 = I3_3(5:end-5, 5:end-5, :);
+
+
     mkdir("../zad3b/" + dst_path);
 
     imwrite(cropImage(I1, crop), "../zad3b/" + dst_path + "/I1.png");

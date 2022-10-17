@@ -29,6 +29,16 @@ function convert_image(names)
     I8 = filter_LUM(I2,2,0); % okno 5x5, K = 0
 
 
+    I1 = I1(3:end-3, 3:end-3); 
+    I2 = I2(3:end-3, 3:end-3);
+    I3 = I3(3:end-3, 3:end-3);
+    I4 = I4(3:end-3, 3:end-3);
+    I5 = I5(3:end-3, 3:end-3);
+    I6 = I6(3:end-3, 3:end-3);
+    I7 = I7(3:end-3, 3:end-3);
+    I8 = I8(3:end-3, 3:end-3);
+
+
     mkdir("../zad2b/" + dst_path);
 
     imwrite(cropImage(I1, crop), "../zad2b/" + dst_path + "/I1.png");
