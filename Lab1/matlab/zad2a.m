@@ -24,6 +24,12 @@ function convert_image(names)
     I4 = filter_median(I2,2); % okno 5x5
     I5 = filter_median(I2,3); % okno 7x7
 
+    I1 = I1(5:end-5, 5:end-5);
+    I2 = I2(5:end-5, 5:end-5);
+    I3 = I3(5:end-5, 5:end-5);
+    I4 = I4(5:end-5, 5:end-5);
+    I5 = I5(5:end-5, 5:end-5);
+
 
     mkdir("../zad2a/" + dst_path);
 

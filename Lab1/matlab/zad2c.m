@@ -42,6 +42,23 @@ function convert_image(names)
     I3_3 = filter_LUM(I3_1, 1, 2); % 3x3, K=2
     I3_4 = filter_LUM(I3_1, 1, 3); % 3x3, K=3
     
+    I1 = I1(5:end-5, 5:end-5);
+
+    I1_1 = I1_1(5:end-5, 5:end-5);
+    I1_2 = I1_2(5:end-5, 5:end-5);
+    I1_3 = I1_3(5:end-5, 5:end-5);
+    I1_4 = I1_4(5:end-5, 5:end-5);
+    
+    I2_1 = I2_1(5:end-5, 5:end-5);
+    I2_2 = I2_2(5:end-5, 5:end-5);
+    I2_3 = I2_3(5:end-5, 5:end-5);
+    I2_4 = I2_4(5:end-5, 5:end-5);
+    
+    I3_1 = I3_1(5:end-5, 5:end-5);
+    I3_2 = I3_2(5:end-5, 5:end-5);
+    I3_3 = I3_3(5:end-5, 5:end-5);
+    I3_4 = I3_4(5:end-5, 5:end-5);
+
 
     mkdir("../zad2c/" + dst_path);
 
@@ -77,9 +94,9 @@ function convert_image(names)
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I1_1.png}}  \hfill% "
 "   \subfloat[mediana 3x3 \\ psnr = " + psnr(I1_2, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I1_2.png}}  \hfill%"
-"   \subfloat[LUM 3x3 k=x \\ psnr = " + psnr(I1_3, I1) + "]{"
+"   \subfloat[LUM 3x3 k=2 \\ psnr = " + psnr(I1_3, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I1_3.png}}  \hfill% "
-"   \subfloat[LUM 3x3 k=x \\ psnr = " + psnr(I1_4, I1) + "]{"
+"   \subfloat[LUM 3x3 k=3 \\ psnr = " + psnr(I1_4, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I1_4.png}} \\"
 ""
 "   \subfloat[]{"
@@ -88,9 +105,9 @@ function convert_image(names)
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I2_1.png}}  \hfill% "
 "   \subfloat[mediana 3x3 \\ psnr = " + psnr(I2_2, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I2_2.png}}  \hfill%"
-"   \subfloat[LUM 3x3 k=x \\ psnr = " + psnr(I2_3, I1) + "]{"
+"   \subfloat[LUM 3x3 k=2 \\ psnr = " + psnr(I2_3, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I2_3.png}}  \hfill% "
-"   \subfloat[LUM 3x3 k=x \\ psnr = " + psnr(I2_4, I1) + "]{"
+"   \subfloat[LUM 3x3 k=3 \\ psnr = " + psnr(I2_4, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I2_4.png}} \\"
 ""
 "   \subfloat[]{"
@@ -99,9 +116,9 @@ function convert_image(names)
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I3_1.png}}  \hfill% "
 "   \subfloat[mediana 3x3 \\ psnr = " + psnr(I3_2, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I3_2.png}}  \hfill%"
-"   \subfloat[LUM 3x3 k=0 \\ psnr = " + psnr(I3_3, I1) + "]{"
+"   \subfloat[LUM 3x3 k=2 \\ psnr = " + psnr(I3_3, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I3_3.png}}  \hfill% "
-"   \subfloat[LUM 3x3 k=1 \\ psnr = " + psnr(I3_4, I1) + "]{"
+"   \subfloat[LUM 3x3 k=3 \\ psnr = " + psnr(I3_4, I1) + "]{"
 "      \includegraphics[width=\ww\linewidth]{../zad2c/img1/I3_4.png}}"
 "\caption{Porownanie}  "
 " "

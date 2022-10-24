@@ -35,6 +35,16 @@ function convert_image(names)
     I2_3 = filter_median(I1_3,3); % okno 7x7
 
 
+    I1   = I1  (5:end-5, 5:end-5, :);
+    I1_1 = I1_1(5:end-5, 5:end-5, :);
+    I1_2 = I1_2(5:end-5, 5:end-5, :);
+    I1_3 = I1_3(5:end-5, 5:end-5, :);
+    I2_1 = I2_1(5:end-5, 5:end-5, :);
+    I2_2 = I2_2(5:end-5, 5:end-5, :);
+    I2_3 = I2_3(5:end-5, 5:end-5, :);
+
+
+
     mkdir("../zad3a/" + dst_path);
 
     imwrite(cropImage(I1, crop), "../zad3a/" + dst_path + "/I1.png");
