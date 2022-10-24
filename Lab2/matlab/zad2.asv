@@ -1,0 +1,117 @@
+clear all
+close all
+clc
+
+
+
+
+images_triangle_rot = [
+%                    path,  rotation,        translation
+{"../images/triangle.png",         0,              [0 0]}
+{'../images/triangle.png',        15,              [0 0]}
+{'../images/triangle.png',        29,              [0 0]}
+{'../images/triangle.png',        50,              [0 0]}
+]
+
+images_triangle_pos = [
+%                    path,  rotation,        translation
+{"../images/triangle.png",         0,              [0 0]}
+{'../images/triangle.png',         0,            [30 30]}
+{'../images/triangle.png',         0,          [100 100]}
+{'../images/triangle.png',         0,         [-100 -20]}
+]
+
+images_triangle_pos = [
+%                    path,  rotation,        translation
+{"../images/triangle.png",         0,              [0 0]}
+{'../images/triangle.png',         0,            [30 30]}
+{'../images/triangle.png',         0,          [100 100]}
+{'../images/triangle.png',         0,         [-100 -20]}
+]
+
+images_sine = [
+%                    path,  rotation,        translation
+{               [.20 .20],         0,              [0 0]}
+{              [.05 .005],         0,              [0 0]}
+{                [1  .01],         0,              [0 0]}
+{                 [.01 1],         0,              [0 0]}
+]
+
+
+figure;
+show_images(images_triangle_rot);
+
+figure;
+show_images(images_triangle_pos);
+
+figure;
+show_images(images_sine);
+
+
+
+function show_images(images)
+    
+    tiledlayout(3,size(images, 1), 'TileSpacing','none');
+    
+    tile_indexes = 1:(3*size(images, 1));
+    tile_indexes = reshape(tile_indexes,[],3)';
+    
+    
+    for tile_index = tile_indexes
+    
+        image = images(tile_index(1),:);
+    
+        src = image{1};
+        rot = image{2};
+        trans = image{3};
+    
+        if isa(src, 'string') || isa(src, 'char') 
+            I1 = imread(src);
+            I1 = double(I1)./256;
+            I1 = rgb2gray(I1);
+        
+            I1 = imrotate(I1, rot);
+            I1 = imtranslate(I1, trans);
+    
+        elseif isa(src, 'double')
+            [X,Y] = meshgrid(1:512, 1:512);
+            I1 = sin(X*src(1) + Y*src(2));
+            I1 = (1 + I1)./2;
+        end
+        
+    
+    
+        [im_level, im_angle] = image_fft(I1);
+    
+        nexttile(tile_index(1))
+        imshow(I1);
+    
+        nexttile(tile_index(2))
+        imshow(im_level,[]);
+        xlabel('Widmo mocy');
+    
+        nexttile(tile_index(3))
+        imshow(im_angle,[]);
+        xlabel('Faza');
+    
+    
+    end
+
+end
+
+
+function [im_level, im_angle] = image_fft(I1)
+
+    L1 = fftshift(fft2(I1));
+    im_level = log(1+abs(L1));    
+    im_angle = angle(L1);    
+
+end
+
+
+
+
+
+
+
+
