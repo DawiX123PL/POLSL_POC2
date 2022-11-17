@@ -7,15 +7,17 @@ images = [
 %             src             
 {"../images/lena_512x512.bmp"}
 {"../images/kodim23_512x512.png"}
-{"../images/lena_512x512.bmp"}
-{"../images/kodim23_512x512.png"}
+{"../images/baboon_512x512.bmp"}
+{"../images/bangko_13_512x512.png"}
 ]
 
+show_images(images(1), "../zad5/I1")
+show_images(images(2), "../zad5/I2")
+show_images(images(3), "../zad5/I3")
+show_images(images(4), "../zad5/I4")
 
-show_images(images(1))
 
-
-function show_images(image)
+function show_images(image, dest_folder)
     
     tiledlayout(2, 3, 'TileSpacing','none');
 
@@ -57,6 +59,42 @@ function show_images(image)
     nexttile
     imshow(image_ifft(L1 .* mask2));
 
+    mkdir(dest_folder)
+    imwrite(I2, dest_folder + "/I1.png")
+    imwrite(im_level, dest_folder + "/I1_L.png")
+    imwrite(mask2, dest_folder + "/I1_mask.png")
+    imwrite(im_level .* mask2, dest_folder + "/I1_Lmask.png")
+    imwrite(image_ifft(L1 .* mask2), dest_folder + "/I2.png")
+    
+    Latex = [
+"\newcommand{\ww}{0.19} "
+"\begin{figure}[H] "
+"   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % "
+"   "
+"    \subfloat[O1]{"
+"        \includegraphics[width=\ww\linewidth]{" + dest_folder + "/I1.png}}  \hfill% "
+"    \subfloat[Widmo mocy]{"
+"        \includegraphics[width=\ww\linewidth]{" + dest_folder + "/I1_l.png}}  \hfill% "
+"    \subfloat[Maska 1]{"
+"        \includegraphics[width=\ww\linewidth]{" + dest_folder + "/I1_mask.png}}  \hfill%"
+"    \subfloat[Widmo mocy * Maska 1]{"
+"        \includegraphics[width=\ww\linewidth]{" + dest_folder + "/I1_Lmask.png}}  \hfill"
+"    \subfloat[Obraz filtrowany]{"
+"        \includegraphics[width=\ww\linewidth]{" + dest_folder + "/I2.png}}  \hfill"
+"\caption{Porownanie}  "
+" "
+"\end{figure} "
+"\let\ww\undefined "
+    ]
+
+    Latex = join(Latex,[''],2);
+    Latex = join(Latex,[newline],1);
+
+    fid = fopen(dest_folder + "/result.tex",'wt');
+    fprintf(fid,"%s", Latex);
+    fclose(fid);
+
+
 
 end
 
@@ -83,7 +121,7 @@ function M = sinMask(dim, pos, width)
 
     m1 = min(M(50:end-50, 50:end-50), [], 'all');
 
-     M = M - m1;
+    M = M - m1;
 
 end
 
@@ -92,7 +130,7 @@ function I1 = sinImage(dim, multi)
     
     [X,Y] = meshgrid(1:dim(1), 1:dim(2));
     I1 = sin(X*multi(1) + Y*multi(2));
-    I1 = (1 + I1)./2;
+    I1 = (I1)./2;
 
 end
 

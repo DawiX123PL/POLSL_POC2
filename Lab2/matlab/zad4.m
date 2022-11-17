@@ -9,6 +9,10 @@ images = [
 {"../images/kodim23_512x512.png", { "circle", 100,  40}, "../zad4/kodim_circ"  }
 {"../images/lena_512x512.bmp",    { "gauss",  150,  70}, "../zad4/lena_gauss"  }
 {"../images/kodim23_512x512.png", { "gauss",  150,  70}, "../zad4/kodim_gauss"  }
+{"../images/lena_512x512.bmp",    { "invcircle", 100,  40}, "../zad4/lena_invcirc"  }
+{"../images/kodim23_512x512.png", { "invcircle", 100,  40}, "../zad4/kodim_invcirc"  }
+{"../images/lena_512x512.bmp",    { "invgauss",  150,  70}, "../zad4/lena_invgauss"  }
+{"../images/kodim23_512x512.png", { "invgauss",  150,  70}, "../zad4/kodim_invgauss"  }
 ]
 
 
@@ -44,8 +48,15 @@ function show_images(image)
     elseif mask{1} == "gauss" 
         im_mask1 = MaskGauss(size(I1), mask{2});
         im_mask2 = MaskGauss(size(I1), mask{3});
+    elseif mask{1} == "invcircle"
+        im_mask1 = MaskCircle(size(I1), mask{2})*-1 + 1;
+        im_mask2 = MaskCircle(size(I1), mask{3})*-1 + 1;
+    elseif mask{1} == "invgauss"
+        im_mask1 = MaskGauss(size(I1), mask{2})*-1 + 1;
+        im_mask2 = MaskGauss(size(I1), mask{3})*-1 + 1;
     end
-    
+
+
     % mask 1
     nexttile
     imshow(I1);
