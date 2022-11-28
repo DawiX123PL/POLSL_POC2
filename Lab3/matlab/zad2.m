@@ -1,15 +1,15 @@
 clear all
 close all
-clc
 
 
-image_path = "../images/20191121_072040.jpg"
+disp("Zad 2")
 
-dest_folder = "../zad2"
+disp("   Img 1")
+ProcessImages("../images/20191121_072040.jpg", "../zad2/Img1");
 
+disp("   Img 2")
+ProcessImages("../images/20191121_072227.jpg", "../zad2/Img2");
 
-
-ProcessImages(image_path, dest_folder)
 
 
 
@@ -19,9 +19,13 @@ function ProcessImages(image_path, dest_folder)
     I = imread(image_path);
     I = rgb2gray(I);
     I = double(I) / 255;
+    I = imresize(I, [512 512]);
     
     [I1, t1] = ImageBinarize(I, "hist");
     [I2, t2] = ImageBinarize(I, "otsu");
+
+    I1 = -I1 + 1;
+    I2 = -I2 + 1;
     
     [~, n1] = bwlabel(I1);
     [~, n2] = bwlabel(I2);
@@ -72,7 +76,7 @@ function ProcessImages(image_path, dest_folder)
     ""
     "\end{figure} "
     "\let\ww\undefined "
-        ]
+        ];
     
         Latex = join(Latex,[''],2);
         Latex = join(Latex,[newline],1);
