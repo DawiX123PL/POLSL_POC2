@@ -1,6 +1,7 @@
 /Lab1/zad*
 /Lab2/zad*
 /Lab3/zad*
+/Lab4/images_gen
 
 # latex files
 *.synctex.gz
@@ -10,4 +11,4 @@
 *.log
 *.out
 
-
+*.asv
