@@ -1,0 +1,49 @@
+
+
+\input{other/header.tex}
+\input{other/codeStyle.tex}
+
+\begin{document}
+\include{other/title.tex} 
+
+
+
+% \section*{Zadanie}
+
+\newcommand{\ww}{1} 
+\begin{figure}[H] 
+   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % 
+    \subfloat[]{
+        \includegraphics[width=\ww\linewidth]{../result/I.png}}
+\caption{Ilość znalezionych zębów}
+\end{figure} 
+
+\begin{figure}[H] 
+   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % 
+    \subfloat[]{
+        \includegraphics[width=\ww\linewidth]{../result/I1.png}}
+\caption{Znalezione zęby}
+\end{figure} 
+
+\begin{figure}[H] 
+   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % 
+    \subfloat[]{
+        \includegraphics[width=\ww\linewidth]{../result/I2.png}}
+\caption{Znalezione zęby}
+\end{figure} 
+
+\begin{figure}[H] 
+   \captionsetup[subfloat]{justification=raggedright,singlelinecheck=false, position=bottom,labelformat=empty} % 
+    \subfloat[]{
+        \includegraphics[width=\ww\linewidth]{../result/I3.png}}
+\caption{Znalezione zęby}
+\end{figure} 
+\let\ww\undefined 
+
+\newpage
+\section*{Kody programów}
+\subsection*{zad1.m}\lstinputlisting[language=Octave]{ "../matlab/zad1.m"} \newpage
+
+
+
+\end{document}
