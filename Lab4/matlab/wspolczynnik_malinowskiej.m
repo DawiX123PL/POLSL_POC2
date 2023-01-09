@@ -1,4 +1,4 @@
-function K = wspolczynnik_kompaktowosci(I1)
+function M = wspolczynnik_malinowskiej(I1)
 
     I1 = I1 > 0.5;
 
@@ -7,7 +7,8 @@ function K = wspolczynnik_kompaktowosci(I1)
     S = all1.Area;
     L = all1.Perimeter;
 
+
     
-    K = 4*pi*S/L^2;
+    M = L / (2*sqrt(pi*S)) - 1;
 
 end

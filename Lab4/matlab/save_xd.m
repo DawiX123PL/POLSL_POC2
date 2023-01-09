@@ -7,7 +7,7 @@ clc
 destination = "../images_gen";
 mkdir(destination);
 
-for i = 1:20;
+for i = 1:100;
 
     translation = (rand(1,2) - .5) * 100
     rotation = rand(1) * 360

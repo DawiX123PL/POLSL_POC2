@@ -1,4 +1,4 @@
-function K = wspolczynnik_kompaktowosci(I1)
+function Mz = wspolczynnik_Mz(I1)
 
     I1 = I1 > 0.5;
 
@@ -8,6 +8,6 @@ function K = wspolczynnik_kompaktowosci(I1)
     L = all1.Perimeter;
 
     
-    K = 4*pi*S/L^2;
+    Mz = 2 * sqrt(pi*S) / L;
 
 end
